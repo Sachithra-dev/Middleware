@@ -38,9 +38,7 @@ app.use(['/activate-service', '/deactivate-service', '/bills/:userId', '/pay-bil
 
 
 
-
 //Server Routes
-
 
 //1.account creation routes
 
