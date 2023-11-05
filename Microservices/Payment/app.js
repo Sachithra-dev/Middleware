@@ -37,6 +37,6 @@ app.post('/savepayment', (req, res) => {
 
 
 
-app.listen(3001, () => {
-  console.log('Authentication Service is running on port 3001');
+app.listen(5006, () => {
+  console.log('Authentication Service is running on port 5006');
 });

@@ -1,32 +1,28 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const mongoose = require("mongoose");
 const app = express();
-const PORT = 3002;
+const PORT = 5002;
 
-const url = 'mongodb://localhost:27017'; // Connection URL
-const dbName = 'ServiceActivations'; // Database Name
+const url = 'mongodb+srv://winzzam:winzzam12345@winzzam-cluster0.r8h3csi.mongodb.net/winzzam?retryWrites=true&w=majority'; // Connection URL
+const dbName = 'Sritel'; // Database Name
 
 app.use(bodyParser.json());
 
-const API_GATEWAY_URL = 'http://localhost:3000'; // API Gateway URL
+const API_GATEWAY_URL = 'http://localhost:5000'; // API Gateway URL
 
 let db; // Declare a variable to hold the database connection
 
-MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-  if (err) {
-    console.error('Error connecting to MongoDB:', err);
-    return;
-  }
-
-  console.log('Connected to MongoDB successfully');
-  db = client.db(dbName); // Assign the database connection to the db variable
-
-  // Define your routes and MongoDB operations here
-
-  app.listen(PORT, () => {
-    console.log(`Service Management Microservice is running on port ${PORT}`);
-  });
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('DB is connected');
+})
+.catch((error) => {
+  console.error('DB connection error:', error);
 });
 
 

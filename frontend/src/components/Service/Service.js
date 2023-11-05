@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 
 const VerticalStackedComponent = () => {
+
+  const [services, setServices] = useState([]) // [service1, service2, service3]
+  useEffect(() => {
+    fetchData();
+  }, [])
+  const fetchData = async () => {
+    const response = await fetch("/services");
+    const data = await response.json();
+    console.log(data)
+    setServices(data)
+  }
+  
   return (
     <div style={mainContainerStyles}>
       <div style={contentBoxStyles}>

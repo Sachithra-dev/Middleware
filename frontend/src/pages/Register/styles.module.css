@@ -62,9 +62,11 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: #05004E;
+	background-color: #ffffff;
 	margin: 5px 0;
 	font-size: 14px;
+	border: solid 2px #05004E;
+	color: #05004E;
 }
 
 .error_msg,

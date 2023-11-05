@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
-const PORT = 3003;
+const PORT = 5003;
 
 const url = 'mongodb://localhost:27017'; // Connection URL
 const dbName = 'ServiceActivations'; // Database Name

@@ -54,8 +54,8 @@ function App() {
 								<>
 									<AuthCheck
 										token={token}
-                    id={id}
-                    loading={loading}
+										id={id}
+										loading={loading}
 									/>
 								</>
 							}

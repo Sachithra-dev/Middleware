@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/users/login";
+      const url = "/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -53,7 +53,7 @@ const Login = () => {
             <h1>Login to Your Account</h1>
             <input
               type="text"
-              placeholder="Your Mobile Number"
+              placeholder="Username"
               name="username"
               onChange={handleChange}
               value={data.username}

@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/users";
+      const url = "/register";
       const response = await fetch(url, {
         method: "POST",
         headers: {

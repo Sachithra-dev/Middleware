@@ -2,18 +2,19 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const jwt = require('jsonwebtoken');
-const PORT = 3000;
+const PORT = 5000;
 
 app.use(express.json());
 
 const SECRET_KEY = 'middleware'; 
 
 const SERVICES = {
-  account: 'http://localhost:3001',
-  serviceManagement: 'http://localhost:3002', 
-  billing: 'http://localhost:3003', 
-  notification: 'http://localhost:3004', 
-  chat: 'http://localhost:3005', 
+  account: 'http://localhost:5001',
+  serviceManagement: 'http://localhost:5002', 
+  billing: 'http://localhost:5003', 
+  notification: 'http://localhost:5004', 
+  chat: 'http://localhost:5005', 
+  payment : 'http://localhost:5006'
 };
 
 

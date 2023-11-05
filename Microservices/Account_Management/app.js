@@ -12,15 +12,16 @@ const users = [];
 
 // Register a new user
 app.post('/register', (req, res) => {
-  const { username, password, email } = req.body;
+  const { firstName, lastName, phoneNumber, password } = req.body;
 
   // Check if the username is already taken
+  const username = firstName +" "+ lastName;
   if (users.some(user => user.username === username)) {
     return res.status(400).json({ message: 'Username already taken' });
   }
 
   // Store user data in the database
-  users.push({ username, password, email });
+  users.push({ username, password, phoneNumber });
   console.log(users);
   res.status(201).json({ message: 'User registered successfully' });
 });
@@ -57,6 +58,6 @@ app.post('/recover', (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log('Authentication Service is running on port 3001');
+app.listen(5001, () => {
+  console.log('Account Management Service is running on port 5001');
 });

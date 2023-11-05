@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Navigation from "./components/Navigation/Navigation";
 import LoadingSpinner from "./components/loading";
 
 const AuthCheck = ({ token, userID, loading }) => {
     if (loading) {
         return <LoadingSpinner />;
     }
-    return <Dashboard token={token} />;
+    return <Navigation token={token} />;
 };
 
 export default AuthCheck;
