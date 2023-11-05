@@ -1,58 +1,56 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const twilio = require('twilio');
 const app = express();
-const SECRET_KEY = 'middleware';
+const PORT = 3004;
 
-app.use(express.json());
+app.use(bodyParser.json());
 
-// In-memory database for simplicity (Can replace with actual database)
-const users = [];
-
-// Register a new user
-app.post('/register', (req, res) => {
-  const { username, password, email } = req.body;
-
-  // Check if the username is already taken
-  if (users.some(user => user.username === username)) {
-    return res.status(400).json({ message: 'Username already taken' });
-  }
-
-  // Store user data in the database
-  users.push({ username, password, email });
-  res.status(201).json({ message: 'User registered successfully' });
-});
-
-// User login
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Check if the user exists and the password is correct
-  const user = users.find(user => user.username === username && user.password === password);
-
-  if (user) {
-    // Generate a token for the authenticated user
-    const token = jwt.sign({ username }, SECRET_KEY);
-    res.json({ token });
-  } else {
-    res.status(401).json({ message: 'Invalid credentials' });
+// Initialize NodeMailer transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'sachithradaylen@gmail.com', // Replace with your email address
+    pass: 'sweatoadeaw1' // Replace with your email password
   }
 });
 
-// Account recovery (basic implementation, just for demonstration)
-app.post('/recover', (req, res) => {
-  const { email } = req.body;
+// Initialize Twilio client
+const twilioClient = twilio('your_twilio_account_sid', 'your_twilio_auth_token'); // Replace with your Twilio credentials
 
-  // Check if the email exists in the database
-  const user = users.find(user => user.email === email);
+// Endpoint to send notifications via email and SMS
+app.post('/send-notification', (req, res) => {
+  const { customerId, message, contactInfo } = req.body;
+  
+  // Send email notification using NodeMailer
+  const mailOptions = {
+    from: 'sricare@gmail.com', // Replace with your email address
+    to: contactInfo.email,
+    subject: 'Sri-Care Notification',
+    text: message
+  };
 
-  if (user) {
-    // For simplicity, in a real scenario, you might send a recovery email to the user.
-    res.json({ message: 'Recovery email sent successfully' });
-  } else {
-    res.status(404).json({ message: 'User not found' });
-  }
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email notification:', error);
+    } else {
+      console.log('Email notification sent:', info.response);
+    }
+  });
+
+  // Send SMS notification using Twilio
+  twilioClient.messages.create({
+    body: message,
+    to: contactInfo.phone, // Replace with the recipient's phone number
+    from: 'your_twilio_phone_number' // Replace with your Twilio phone number
+  })
+  .then(message => console.log('SMS notification sent:', message.sid))
+  .catch(error => console.error('Error sending SMS notification:', error));
+
+  res.json({ message: 'Notification sent successfully.' });
 });
 
-app.listen(3001, () => {
-  console.log('Authentication Service is running on port 3001');
+app.listen(PORT, () => {
+  console.log(`Notification Service is running on port ${PORT}`);
 });
