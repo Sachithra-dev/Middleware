@@ -1,0 +1,23 @@
+/* Header.css */
+
+.header {
+    background-color: #05004E;
+    color: #fff;
+    padding: 3%;
+    margin: -1%;
+    display: flex;
+    height: 10%;
+    justify-content: flex-end;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notification-icon, .profile-icon {
+    margin: 0 10px;
+    font-size: 20px; /* Adjust icon size as needed */
+    cursor: pointer;
+  }
+  

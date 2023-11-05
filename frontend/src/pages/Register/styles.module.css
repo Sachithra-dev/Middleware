@@ -22,7 +22,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #0095FF;
+	background-color: #05004E;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -62,7 +62,7 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: #c3ddf0;
+	background-color: #05004E;
 	margin: 5px 0;
 	font-size: 14px;
 }
@@ -97,7 +97,7 @@
 }
 
 .green_btn {
-	background-color: #0095FF;
+	background-color: #05004E;
 	color: white;
 	margin: 10px;
 }

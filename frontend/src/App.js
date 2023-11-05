@@ -9,7 +9,7 @@ import {
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register"; // Corrected typo
 import AuthCheck from "./AuthCheck";
-
+import Navigation from "./components/Navigation/Navigation";
 
 
 function App() {
@@ -68,6 +68,10 @@ function App() {
 						<Route
 							path="/"
 							element={<Navigate replace to="/login" />}
+						/>
+            			<Route
+							path="/dashboard"
+							element={<Navigation/>}
 						/>
 					</>
 				)}

@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background: #f3fbff00;
+  
+}
+
+.main-container{
+  background-color: #f3fbff;
+}
+
+.content-area{
+background-color: #f3fbff00;   
+margin-left: 16%;
+padding: 10px 10px 10px 30px;
+width: 84%;
+height: 100vh;
+}
+
+
+a {
+  text-decoration: none;
+  color: rgb(97, 97, 97);
+}
+
+li {
+  list-style: none;
+}
+
+.btns {
+  padding: 10px 20px;
+  margin-right: 6px;
+  background: transparent;
+  border: none;
+  border: 0.6px solid #ccc;
+  border-radius: 5px;
+  color: #323232;
+  cursor: pointer;
+}

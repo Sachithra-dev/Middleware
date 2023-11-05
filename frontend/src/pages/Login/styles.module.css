@@ -44,9 +44,10 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: #cce2f4e0;
+	background-color: #05004E;
 	margin: 5px 0;
 	font-size: 14px;
+	color: white;
 }
 
 .error_msg {
@@ -66,7 +67,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #0095FF;
+	background-color: #05004E;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -76,6 +77,12 @@
 	color: white;
 	font-size: 40px;
 	align-self: center;
+}
+
+.left h1 {
+	margin-bottom: 5%;
+	color: rgb(51, 0, 99);
+	font-size: 40px;
 }
 
 .white_btn,
@@ -92,7 +99,7 @@
 }
 
 .green_btn {
-	background-color: #0095FF;
+	background-color: #05004E;
 	color: white;
 	margin: 10px;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import LoadingSpinner from "./components/loading";
 
 const AuthCheck = ({ token, userID, loading }) => {
