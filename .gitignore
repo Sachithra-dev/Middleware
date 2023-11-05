@@ -1,0 +1,7 @@
+node_modules/
+Api_Gateway/node_modules
+Microservices/Account_Mangement/node_modules
+Microservices/billing/node_modules
+Microservices/Chat/node_modules
+Microservices/Notification/node_modules
+Microservices/Service/node_modules
